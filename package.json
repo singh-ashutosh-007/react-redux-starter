@@ -1,7 +1,10 @@
 {
-  "name": "ashu-react-redux-starter",
-  "version": "1.0.0",
+  "name":     "ashu-react-redux-starter",
+  "version":  "1.0.0",
   "description": "Starter KIT",
+  "scripts": {
+    "start": "babel-node tools/srcServer.js"
+  },
   "author": "Ashutosh Singh Rawat",
   "license": "MIT",
   "dependencies": {
