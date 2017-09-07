@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
 import { bindActionCreators } from 'redux';
 
+import CourseList from './CourseList';
+
 class CoursesPage extends React.Component {
   constructor(props, context){
     super(props, context);
@@ -35,11 +37,18 @@ class CoursesPage extends React.Component {
   }
 
   render() {
+    const {courses} = this.props;
     return (
       <div className="jumbotron">
         <h1>Courses</h1>
-        {this.props.courses.map(this.courseRow)}
+        <CourseList courses={courses}/>
       </div>
+
+      // <div className="jumbotron">
+      //   <h1>Courses</h1>
+      //   {this.props.courses.map(this.courseRow)}
+      // </div>
+
       // <h2>Add Course</h2>
       // <input
       //   type="text"
