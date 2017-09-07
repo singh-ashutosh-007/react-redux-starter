@@ -6,8 +6,8 @@ import * as courseActions from '../../actions/courseActions';
 
 class CoursesPage extends React.Component {
   constructor(props, context){
-  	super(props, context);
-  	this.state = {
+    super(props, context);
+    this.state = {
       course: {title: ""}
     };
 
@@ -18,7 +18,7 @@ class CoursesPage extends React.Component {
   onTitleChange(event) {
     const course = this.state.course;
     course.title = event.target.value;
-    this.setState({course: course})
+    this.setState({course: course});
   }
 
   onClickSave() {
@@ -57,7 +57,7 @@ class CoursesPage extends React.Component {
 CoursesPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
   courses: PropTypes.array.isRequired
-}
+};
 
 function mapStateToProps(state, ownProps) {
   return{
