@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
+import { bindActionCreators } from 'redux';
 
 class CoursesPage extends React.Component {
   constructor(props, context){
@@ -24,7 +25,7 @@ class CoursesPage extends React.Component {
   onClickSave() {
     // alert(`Saving ${this.state.course.title}`);
     // this.props.dispatch(courseActions.createCourse(this.state.course));// NOT GOOD WAY
-    this.props.createCourse(this.state.course);// GOOD WAY
+    this.props.actions.createCourse(this.state.course);// GOOD WAY
   }
 
   courseRow(course, index) {
@@ -58,7 +59,8 @@ class CoursesPage extends React.Component {
 CoursesPage.propTypes = {
   // dispatch: PropTypes.func.isRequired, // required when Ommiting mapDispatchToProps
   courses: PropTypes.array.isRequired,
-  createCourse: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
+  // createCourse: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
@@ -70,7 +72,8 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   // return bindActionCreators({reducer}, dispatch)
   return {
-    createCourse: course => dispatch(courseActions.createCourse(course))
+    // createCourse: course => dispatch(courseActions.createCourse(course))
+    actions: bindActionCreators(courseActions, dispatch)
   };
 }
 
