@@ -3,7 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './common/Header';
-// import Main from './Main'
 import {
   BrowserRouter as Router,
 } from 'react-router-dom';

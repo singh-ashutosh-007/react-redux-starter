@@ -5,6 +5,15 @@ import {
 } from 'react-router-dom';
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
+import CoursesPage from './components/course/CoursesPage';
+const RoutingConfig = () => (
+
+  <div>
+    <Route exact path="/" component={HomePage}/>
+    <Route path="/courses" component={CoursesPage}/>
+    <Route path="/about" component={AboutPage}/>
+  </div>
+);
 
 // export default (
 //   <Route path="/" component={App}>
@@ -38,12 +47,5 @@ import AboutPage from './components/about/AboutPage';
 // };
 // export default RoutingConfig;
 
-const RoutingConfig = () => (
-
-  <div>
-    <Route exact path="/" component={HomePage}/>
-    <Route path="/about" component={AboutPage}/>
-  </div>
-);
 
 export default RoutingConfig;
