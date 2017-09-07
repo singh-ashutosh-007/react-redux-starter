@@ -12,21 +12,21 @@ class CoursesPage extends React.Component {
       course: {title: ""}
     };
 
-    this.onTitleChange  = this.onTitleChange.bind(this);
-    this.onClickSave    = this.onClickSave.bind(this);
+    // this.onTitleChange  = this.onTitleChange.bind(this);
+    // this.onClickSave    = this.onClickSave.bind(this);
   }
 
-  onTitleChange(event) {
-    const course = this.state.course;
-    course.title = event.target.value;
-    this.setState({course: course});
-  }
-
-  onClickSave() {
-    // alert(`Saving ${this.state.course.title}`);
-    // this.props.dispatch(courseActions.createCourse(this.state.course));// NOT GOOD WAY
-    this.props.actions.createCourse(this.state.course);// GOOD WAY
-  }
+  // onTitleChange(event) {
+  //   const course = this.state.course;
+  //   course.title = event.target.value;
+  //   this.setState({course: course});
+  // }
+  //
+  // onClickSave() {
+  //   // alert(`Saving ${this.state.course.title}`);
+  //   // this.props.dispatch(courseActions.createCourse(this.state.course));// NOT GOOD WAY
+  //   this.props.actions.createCourse(this.state.course);// GOOD WAY
+  // }
 
   courseRow(course, index) {
     return (
@@ -39,19 +39,19 @@ class CoursesPage extends React.Component {
       <div className="jumbotron">
         <h1>Courses</h1>
         {this.props.courses.map(this.courseRow)}
-        <h2>Add Course</h2>
-        <input
-          type="text"
-          onChange={this.onTitleChange}
-          value={this.state.course.title}
-        />
-
-        <input
-          type="submit"
-          value="Save"
-          onClick={this.onClickSave}
-        />
       </div>
+      // <h2>Add Course</h2>
+      // <input
+      //   type="text"
+      //   onChange={this.onTitleChange}
+      //   value={this.state.course.title}
+      // />
+      //
+      // <input
+      //   type="submit"
+      //   value="Save"
+      //   onClick={this.onClickSave}
+      // />
     );
   }
 }
