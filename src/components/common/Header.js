@@ -5,7 +5,7 @@ import { NavLink, Link, IndexLink } from 'react-router-dom';
 const Header = () => {
   return(
     <nav>
-      <NavLink exact to="/" activeClassName="active label-success" className="label label-lg label-primary">Home</NavLink>
+      <NavLink exact to="/" activeClassName="active label-success" className="label label-primary">Home</NavLink>
       {"  |  "}
       <NavLink exact to="/courses" activeClassName="active label-success" className="label label-primary" >Courses</NavLink>
       {"  |  "}
