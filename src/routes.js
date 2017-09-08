@@ -6,11 +6,13 @@ import {
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
-const RoutingConfig = () => (
+import ManageCoursePage from './components/course/ManageCoursePage';
 
+const RoutingConfig = () => (
   <div>
     <Route exact path="/" component={HomePage}/>
     <Route path="/courses" component={CoursesPage}/>
+    <Route path="/course/:id" component={ManageCoursePage}/>
     <Route path="/about" component={AboutPage}/>
   </div>
 );
