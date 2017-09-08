@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import * as courseActions from '../../actions/courseActions';
 
 import CourseList from './CourseList';
@@ -13,7 +13,7 @@ class CoursesPage extends React.Component {
     this.state = {
       course: {title: ""}
     };
-
+    this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
     // this.onTitleChange  = this.onTitleChange.bind(this);
     // this.onClickSave    = this.onClickSave.bind(this);
   }
@@ -36,11 +36,22 @@ class CoursesPage extends React.Component {
     );
   }
 
+  redirectToAddCoursePage() {
+    this.props.history.push('/course');
+  }
+
   render() {
-    const {courses} = this.props;
+    const { courses, match, location, history } = this.props;
+
     return (
       <div className="jumbotron">
         <h1>Courses</h1>
+        <input
+          type="submit"
+          value="Add Course"
+          className="btn btn-primary"
+          onClick={this.redirectToAddCoursePage}
+        />
         <CourseList courses={courses}/>
       </div>
 
@@ -68,7 +79,10 @@ class CoursesPage extends React.Component {
 CoursesPage.propTypes = {
   // dispatch: PropTypes.func.isRequired, // required when Ommiting mapDispatchToProps
   courses: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
   // createCourse: PropTypes.func.isRequired
 };
 
