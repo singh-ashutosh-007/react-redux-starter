@@ -27,6 +27,7 @@ class ManageCoursePage extends React.Component {
   saveCourse(event) {
     event.preventDefault();
     this.props.actions.saveCourse(this.state.course);
+    this.context.router.history.push('/courses');
   }
 
   render() {
@@ -47,6 +48,15 @@ ManageCoursePage.propTypes = {
   course: PropTypes.object.isRequired,
   authors: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
+};
+
+// you need to specify the context type so that it
+// is available within the component
+ManageCoursePage.contextTypes = {
+  // history: React.PropTypes.shape({
+  //   push: React.PropTypes.func.isRequired
+  // })
+  router: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
