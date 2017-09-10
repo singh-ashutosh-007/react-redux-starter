@@ -72,7 +72,6 @@ function getCourseById(courses, id){
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log(ownProps);
   let course = {
     id: '',
     watchHref: '',
