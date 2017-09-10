@@ -58,8 +58,14 @@ ManageCoursePage.contextTypes = {
   // })
   router: PropTypes.object.isRequired
 };
+function getCourseById(courses, id){
+  const course = courses.filter(course => course.id == id);
+  if (course) return course[0];
+  return null;
+}
 
 function mapStateToProps(state, ownProps) {
+  console.log(ownProps);
   let course = {
     id: '',
     watchHref: '',
@@ -68,6 +74,11 @@ function mapStateToProps(state, ownProps) {
     length: '',
     category: ''
   };
+
+  const courseId = ownProps.match.params.id; // from the path
+  if (courseId && state.courses.length > 0){
+    course = getCourseById(state.courses, courseId);
+  }
 
   const authorFormattedForDropdown = state.authors.map(author => {
     return {
