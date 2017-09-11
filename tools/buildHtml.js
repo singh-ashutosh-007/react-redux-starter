@@ -12,15 +12,10 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
   const $ = cheerio.load(markup);
 
   // Since a separate spreadsheet is only utilized for the production build need to dynamically
-  console.log('Writing index.html');
-  // console.log($);
   console.log('Appending style'.blue);
-  console.log($('head'));
   $('head').prepend('<link rel="stylesheet" href="styles.css">');
-  console.log('After Appending style'.blue);
-  console.log($('head'));
-  // console.log($);
 
+  console.log('Writing index.html');
   fs.writeFile('dist/index.html', $.html(), 'utf8', function (err) {
     if (err) {
       return console.log(err);
