@@ -68,7 +68,7 @@ export class ManageCoursePage extends React.Component {
     this.setState({saving: false});
     toastr.success('Course Saved !!!');
     // this.context.router.history.push('/courses');
-    this.props.history.push('/course');
+    this.props.history.push('/courses');
   }
 
 
