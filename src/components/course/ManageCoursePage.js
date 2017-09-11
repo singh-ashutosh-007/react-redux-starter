@@ -6,6 +6,7 @@ import * as courseActions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
 import toastr from 'toastr';
 import {authorFormattedForDropdown} from '../../selectors/selectors';
+import { Link, withRouter } from 'react-router-dom';
 
 
 export class ManageCoursePage extends React.Component {
@@ -66,7 +67,8 @@ export class ManageCoursePage extends React.Component {
   redirect_to_courses(){
     this.setState({saving: false});
     toastr.success('Course Saved !!!');
-    this.context.router.history.push('/courses');
+    // this.context.router.history.push('/courses');
+    this.props.history.push('/course');
   }
 
 
@@ -88,7 +90,8 @@ ManageCoursePage.propTypes = {
   //myProp: ProtoTypes.string.isRequired
   course: PropTypes.object.isRequired,
   authors: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 // you need to specify the context type so that it
@@ -97,7 +100,7 @@ ManageCoursePage.contextTypes = {
   // history: React.PropTypes.shape({
   //   push: React.PropTypes.func.isRequired
   // })
-  router: PropTypes.object.isRequired
+  // router: PropTypes.object.isRequired
 };
 function getCourseById(courses, id){
   const course = courses.filter(course => course.id == id);
