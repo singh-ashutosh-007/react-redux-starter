@@ -11,6 +11,8 @@ const Header = ({loading}) => {
       <NavLink exact to="/courses" activeClassName="active label-success" className="label label-primary" >Courses</NavLink>
       {"  |  "}
       <NavLink exact to="/about" activeClassName="active label-success" className="label label-primary" >About</NavLink>
+      {"  |  "}
+      <NavLink exact to="/wizard-form" activeClassName="active label-success" className="label label-primary" >Form Wizard</NavLink>
       {loading && <LoadingDots interval={100} dots={20}/>}
     </nav>
   );
